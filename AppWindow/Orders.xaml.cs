@@ -21,5 +21,15 @@ namespace AppWindow
         {
             InitializeComponent();
         }
+
+        private void backOrders(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listOrders(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

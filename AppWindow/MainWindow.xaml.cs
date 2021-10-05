@@ -25,7 +25,47 @@ namespace AppWindow
             InitializeComponent();
         }
 
+        private void Order(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Orders(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void plus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void minus(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void plus_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
         {
 
         }

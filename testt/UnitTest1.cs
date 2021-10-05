@@ -8,7 +8,6 @@ namespace testt
 {
     public class Tests
     {
-
         [SetUp]
         public void Setup()
         {
@@ -38,7 +37,7 @@ namespace testt
 
         [TestCase("Хлеб", "Хлеб белый", "Екатеринбург")]
 
-        public void AddOrder(ProductModel[] products, string description, string address)
+        public void AddOrder(string products, string description, string address)
         {
             OrderService orderService = new OrderService();
             var order = orderService.AddOrder(products, description, address);
@@ -47,11 +46,11 @@ namespace testt
             Assert.AreEqual(order.Address, address);
         }
 
-        //[TestCase([1, "Хлеб", 23], "", "Екатеринбург")]
-        //[TestCase([2,"Молоко",23], "Молоко свежий","Екатеринбург")]
-        //[TestCase([,,], "Яблоко красное", "")]
+        [TestCase("Хлеб", "", "Екатеринбург")]
+        [TestCase("", "Молоко свежий","Екатеринбург")]
+        [TestCase("Яблоко", "Яблоко красное", "")]
 
-        public void AddOrderWithThrow(ProductModel[] products, string description, string address)
+        public void AddOrderWithThrow(string products, string description, string address)
         {
             var orderService = new OrderService();
             Assert.Throws<Exception>(() => orderService.AddOrder(products, description, address));

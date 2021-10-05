@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Orders" Height="450" Width="800">
     <Grid>
-        
+        <ListBox x:Name="listOrders" HorizontalAlignment="Center" Height="335" Margin="0,23,0,0" VerticalAlignment="Top" Width="730" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="20" SelectionChanged="listOrders"/>
+        <Button x:Name="backOrders" Content="Вернуться" HorizontalAlignment="Left" Height="46" Margin="35,363,0,0" VerticalAlignment="Top" Width="711" Background="{x:Null}" BorderBrush="Black" OpacityMask="Black" FontSize="20" FontFamily="Arial Black" Click="backOrders"/>
     </Grid>
 </Window>

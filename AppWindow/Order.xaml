@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="Order" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" Height="50" Margin="77,364,0,0" VerticalAlignment="Top" Width="225" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" BorderThickness="2,2,2,2" Grid.Column="0" Panel.ZIndex="-3" BorderBrush="Black"/>
+        <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Height="51" Margin="456,364,0,0" VerticalAlignment="Top" Width="242" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="Black" BorderThickness="2,2,2,2"/>
+        <Label Content="Итоговая цена:" HorizontalAlignment="Left" Height="38" Margin="486,306,0,0" VerticalAlignment="Top" Width="182" FontFamily="Arial Black" FontSize="20"/>
+        <Menu HorizontalAlignment="Center" Height="291" Margin="0,10,0,0" VerticalAlignment="Top" Width="752" FontSize="20" FontFamily="Arial Black" Background="{x:Null}"/>
+        <Label Content="" HorizontalAlignment="Left" Height="38" Margin="673,306,0,0" VerticalAlignment="Top" Width="103"/>
     </Grid>
 </Window>

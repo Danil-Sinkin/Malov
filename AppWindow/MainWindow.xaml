@@ -12,29 +12,29 @@
             <RowDefinition Height="125*"/>
         </Grid.RowDefinitions>
         <Label x:Name="NameProduct" Content="" HorizontalAlignment="Left" Height="33" Margin="36,37,0,0" VerticalAlignment="Top" Width="142"/>
-        <Label x:Name="NameProduct1" Content="" HorizontalAlignment="Left" Height="33" Margin="36,37,0,0" VerticalAlignment="Top" Width="195"/>
-        <Label x:Name="NameProduct_Copy1" Content="" HorizontalAlignment="Left" Height="33" Margin="36,222,0,0" VerticalAlignment="Top" Width="194"/>
-        <Label x:Name="NameProduct_Copy2" Content="" HorizontalAlignment="Left" Height="34" Margin="273,223,0,0" VerticalAlignment="Top" Width="202"/>
-        <Label x:Name="NameProduct2" Content="" HorizontalAlignment="Left" Height="33" Margin="273,37,0,0" VerticalAlignment="Top" Width="202"/>
+        <Label x:Name="NameProduct1" Content="" HorizontalAlignment="Left" Height="33" Margin="36,37,0,0" VerticalAlignment="Top" Width="195" FontFamily="Arial Black" FontSize="20"/>
+        <Label x:Name="NameProduct_Copy1" Content="" HorizontalAlignment="Left" Height="33" Margin="36,222,0,0" VerticalAlignment="Top" Width="194" FontFamily="Arial Black" FontSize="20"/>
+        <Label x:Name="NameProduct_Copy2" Content="" HorizontalAlignment="Left" Height="34" Margin="273,223,0,0" VerticalAlignment="Top" Width="202" FontFamily="Arial Black" FontSize="20"/>
+        <Label x:Name="NameProduct2" Content="" HorizontalAlignment="Left" Height="33" Margin="273,37,0,0" VerticalAlignment="Top" Width="202" FontSize="20" FontFamily="Arial Black"/>
         <Image HorizontalAlignment="Left"  Height="105" Margin="36,70,0,0" VerticalAlignment="Top" Width="198" OpacityMask="Black" Visibility="Visible"/>
         <Image HorizontalAlignment="Left" Height="105" Margin="268,70,0,0" VerticalAlignment="Top" Width="205"/>
-        <Image HorizontalAlignment="Left" Height="105" Margin="36,258,0,0" VerticalAlignment="Top" Width="190"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="106,177,0,0" VerticalAlignment="Top" Width="54" BorderThickness="0,0,0,0" FontSize="16"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="28" Margin="347,359,0,0" VerticalAlignment="Top" Width="54" FontSize="16"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="28" Margin="107,359,0,0" VerticalAlignment="Top" Width="54" RenderTransformOrigin="0.426,-0.003" FontSize="16"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="344,177,0,0" VerticalAlignment="Top" Width="54" FontSize="16"/>
+        <Image HorizontalAlignment="Left" Height="99" Margin="36,258,0,0" VerticalAlignment="Top" Width="190" OpacityMask="Black"/>
+        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="98,177,0,0" VerticalAlignment="Top" Width="70" BorderThickness="0,0,0,0" FontSize="16" FontFamily="Arial Black"/>
+        <Label Content="Count" HorizontalAlignment="Left" Height="28" Margin="334,359,0,0" VerticalAlignment="Top" Width="67" FontSize="16" FontFamily="Arial Black"/>
+        <Label Content="Count" HorizontalAlignment="Left" Height="28" Margin="98,359,0,0" VerticalAlignment="Top" Width="63" RenderTransformOrigin="0.426,-0.003" FontSize="16" FontFamily="Arial Black"/>
+        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="334,177,0,0" VerticalAlignment="Top" Width="67" FontSize="16" FontFamily="Arial Black"/>
         <Image HorizontalAlignment="Left" Height="105" Margin="268,70,0,0" VerticalAlignment="Top" Width="205"/>
-        <Image HorizontalAlignment="Left" Height="104" Margin="273,258,0,0" VerticalAlignment="Top" Width="205"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="50,176,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" BorderThickness="2,2,2,2" ClipToBounds="True" FontSize="20"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="417,359,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="286,359,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="180,357,0,0" VerticalAlignment="Top" Width="32" Background="{x:Null}"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="50,357,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Button_Click" FontSize="20"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="418,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" FontSize="20"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="286,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" RenderTransformOrigin="0.567,0.823" FontSize="20"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="180,177,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20"/>
-        <Button Content="Заказы" HorizontalAlignment="Left" Height="29" Margin="36,80,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Button_Click" FontSize="20" Grid.Row="1"/>
-        <Button Content="Заказать" HorizontalAlignment="Left" Height="29" Margin="273,80,0,0" VerticalAlignment="Top" Width="202" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Button_Click" FontSize="20" Grid.Row="1"/>
+        <Image HorizontalAlignment="Left" Height="101" Margin="273,258,0,0" VerticalAlignment="Top" Width="205" OpacityMask="Black"/>
+        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="50,176,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" BorderThickness="2,2,2,2" ClipToBounds="True" FontSize="20" FontFamily="Arial Black" Click="minus"/>
+        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="417,359,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click_3"/>
+        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="286,359,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click_2"/>
+        <Button x:Name="plus" Content="+" HorizontalAlignment="Left" Height="28" Margin="180,357,0,0" VerticalAlignment="Top" Width="32" Background="{x:Null}" BorderThickness="2,2,2,2" FontFamily="Arial Black" FontSize="20" Click="plus_Click"/>
+        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="50,357,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" RenderTransformOrigin="0.5,0.5" Click="Button_Click" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black"/>
+        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="418,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click_1"/>
+        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="286,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" RenderTransformOrigin="0.567,0.823" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click"/>
+        <Button x:Name="plus1" Content="+" HorizontalAlignment="Left" Height="28" Margin="180,177,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="plus"/>
+        <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" Height="29" Margin="36,80,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Orders" FontSize="20" Grid.Row="1" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Arial Black"/>
+        <Button x:Name="order" Content="Заказать" HorizontalAlignment="Left" Height="29" Margin="273,80,0,0" VerticalAlignment="Top" Width="202" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Order" FontSize="20" Grid.Row="1" BorderThickness="2,2,2,2" FontFamily="Arial Black" BorderBrush="Black"/>
 
     </Grid>
 </Window>

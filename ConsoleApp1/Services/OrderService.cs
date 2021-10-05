@@ -16,9 +16,9 @@ namespace ConsoleApp1
             order1.Status = status;
         }
 
-        public OrderModel AddOrder(ProductModel[] products, string description, string address)
+        public OrderModel AddOrder(string products, string description, string address)
         {
-            if (products is null ||
+            if (string.IsNullOrEmpty(products) ||
                 string.IsNullOrEmpty(description) ||
                 string.IsNullOrEmpty(address))
                 throw new Exception("Передано пустое значение");

@@ -27,12 +27,16 @@ namespace AppWindow
 
         private void Order(object sender, RoutedEventArgs e)
         {
-
+            Order order = new Order();
+            order.Show();
+            this.Close();
         }
 
         private void Orders(object sender, RoutedEventArgs e)
         {
-
+            Orders orders = new Orders();
+            orders.Show();
+            this.Close();
         }
 
         private void plus(object sender, RoutedEventArgs e)
@@ -66,6 +70,11 @@ namespace AppWindow
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click12(object sender, RoutedEventArgs e)
         {
 
         }

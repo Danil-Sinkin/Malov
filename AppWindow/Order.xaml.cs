@@ -21,5 +21,19 @@ namespace AppWindow
         {
             InitializeComponent();
         }
+
+        private void orders_Click(object sender, RoutedEventArgs e)
+        {
+            Orders orders = new Orders();
+            orders.Show();
+            this.Close();
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }

@@ -24,12 +24,14 @@ namespace AppWindow
 
         private void backOrders(object sender, RoutedEventArgs e)
         {
-
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show(); 
+            this.Close();
         }
 
         private void listOrders(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
     }
 }

@@ -49,10 +49,10 @@ namespace testt
         //[TestCase("", "Молоко свежий","Екатеринбург")]
         //[TestCase("Яблоко", "Яблоко красное", "")]
 
-        //public void AddOrderWithThrow(ProductModel[] products, string description, string address)
-        //{
-        //    var orderService = new OrderService();
-        //    Assert.Throws<Exception>(() => orderService.AddOrder(products, description, address));
-        //}
+        public void AddOrderWithThrow(ProductModel[] products, string description, string address)
+        {
+            var orderService = new OrderService();
+            Assert.Throws<Exception>(() => orderService.AddOrder(products, description, address));
+        }
     }
 }

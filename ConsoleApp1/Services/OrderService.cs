@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ConsoleApp1
 {
-    public class OrderService : IOrderService
+    public class OrderService :IOrderService
     {
         public static List<OrderModel> Orders = new List<OrderModel>();
         public void ChangeStatus(int id, EStatus status)

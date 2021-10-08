@@ -34,8 +34,9 @@ namespace testt
             var productService = new ProductService();
             Assert.Throws<Exception>(() => productService.CreateProduct(name, price));
         }
-        [TestCase("Хлеб", "Хлеб белый", "Екатеринбург")]
-        
+        ProductService productService = new ProductService();
+        ProductModel productModel = new ProductModel();
+        [TestCase((productService.GetProducts()), "Хлеб белый", "Екатеринбург")]
         public void AddOrder(ProductModel[] products, string description, string address)
         {
             OrderService orderService = new OrderService();

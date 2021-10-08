@@ -8,17 +8,17 @@ using System.Linq;
 namespace ConsoleApp1
 {
     public class OrderService : IOrderService
-    {      
+    {
         public static List<OrderModel> Orders = new List<OrderModel>();
         public void ChangeStatus(int id, EStatus status)
         {
-            var order1 = Orders.FirstOrDefault(q => q.Id == id);
-            order1.Status = status;
+            var order = Orders.FirstOrDefault(q => q.Id == id);
+            order.Status = status;
         }
 
-        public OrderModel AddOrder(string products, string description, string address)
+        public OrderModel AddOrder(ProductModel[] products, string description, string address)
         {
-            if (string.IsNullOrEmpty(products) ||
+            if ((products is null) ||
                 string.IsNullOrEmpty(description) ||
                 string.IsNullOrEmpty(address))
                 throw new Exception("Передано пустое значение");

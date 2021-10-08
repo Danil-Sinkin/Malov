@@ -7,7 +7,7 @@ namespace ConsoleApp1.Services.Interfaces
     {
         public OrderModel GetOrder(int id);
         public OrderModel[] GetOrders();
-        public OrderModel AddOrder(string products, string description, string address);
+        public OrderModel AddOrder(ProductModel[] products, string description, string address);
         public void ChangeStatus(int id, EStatus status);
     }
 }

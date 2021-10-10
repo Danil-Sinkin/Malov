@@ -36,9 +36,15 @@ namespace testt
             Assert.Throws<Exception>(() => productService.CreateProduct(name, price));
         }
 
-        [TestCaseSource(nameof(DivideCases))]
-        [TestCase(nameof(DivideCases), "Хлеб", "Екатеринбург")]
-        public void DivideTest(int id, string name, decimal price)
+
+
+        //public static object[] ProductTests = new[] {
+        //      new object[] { 1, "Яблоко", 4.0m } 
+        //};
+
+        [TestCase("Хлеб свежий" , "Адрес","ProductsCase")]
+
+        public void ProductsTest(int id, string name, decimal price)
         {
             ProductService productService = new ProductService();
             var product = productService.CreateProduct(name, price);
@@ -46,19 +52,16 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        public static object[] DivideCases =
+        public static object[] ProductsCase =
         {
-            new object[] { 1, "Хлеб", 4.0m }
-            //new object[] { 12, "Хлеб", 6 },
-            //new object[] { 12, "Хлеб", 3 }
+            new object[] { 12, "Хлеб", 6.0m }
         };
-        //[TestCaseSource( nameof(DivideCases)), TestCase( "Хлеб", "Екатеринбург")]
 
-        public void AddOrder(ProductModel[] products, string description, string address)
+        public void AddOrder(string description, string address, ProductModel[] products)
         {
             OrderService orderService = new OrderService();
 
-            var order = orderService.AddOrder(products, description, address);
+            var order = orderService.AddOrder(description, address, products);
             Assert.AreEqual(order.Products, products);
             Assert.AreEqual(order.Description, description);
             Assert.AreEqual(order.Address, address);
@@ -68,10 +71,10 @@ namespace testt
         //[TestCase("", "Молоко свежий","Екатеринбург")]
         //[TestCase("Яблоко", "Яблоко красное", "")]
 
-        public void AddOrderWithThrow(ProductModel[] products, string description, string address)
+        public void AddOrderWithThrow(string description, string address, ProductModel[] products)
         {
             var orderService = new OrderService();
-            Assert.Throws<Exception>(() => orderService.AddOrder(products, description, address));
+            Assert.Throws<Exception>(() => orderService.AddOrder(description, address, products));
         }
     }
 }

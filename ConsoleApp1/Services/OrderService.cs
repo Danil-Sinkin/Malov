@@ -16,7 +16,7 @@ namespace ConsoleApp1
             order.Status = status;
         }
 
-        public OrderModel AddOrder(ProductModel[] products, string description, string address)
+        public OrderModel AddOrder(string description, string address, ProductModel[] products)
         {
             if ((products is null) ||
                 string.IsNullOrEmpty(description) ||

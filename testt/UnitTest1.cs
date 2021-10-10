@@ -1,9 +1,9 @@
 using ConsoleApp1;
+using ConsoleApp1.Enums;
 using ConsoleApp1.Models;
 using ConsoleApp1.Services;
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 
 namespace testt
 {
@@ -29,20 +29,13 @@ namespace testt
 
         [TestCase("", 444)]
         [TestCase("Яблоко", -444)]
-
         public void CreateProductWithThrow(string name, decimal price)
         {
             var productService = new ProductService();
             Assert.Throws<Exception>(() => productService.CreateProduct(name, price));
         }
 
-
-
-        //public static object[] ProductTests = new[] {
-        //      new object[] { 1, "Яблоко", 4.0m } 
-        //};
-
-        [TestCase("Хлеб свежий" , "Адрес","ProductsCase")]
+        [TestCase("Хлеб свежий", "Адрес", "ProductsCase")]
 
         public void ProductsTest(int id, string name, decimal price)
         {
@@ -67,14 +60,42 @@ namespace testt
             Assert.AreEqual(order.Address, address);
         }
 
-        //[TestCase("Хлеб", "", "Екатеринбург")]
-        //[TestCase("", "Молоко свежий","Екатеринбург")]
-        //[TestCase("Яблоко", "Яблоко красное", "")]
+
 
         public void AddOrderWithThrow(string description, string address, ProductModel[] products)
         {
             var orderService = new OrderService();
             Assert.Throws<Exception>(() => orderService.AddOrder(description, address, products));
         }
+
+        [TestCaseSource("ChangeStatusCase")]
+
+        public void ChangeStatus(int id, EStatus status)
+        {
+            OrderService orderService = new OrderService();
+            var estatus = orderService.ChangeStatus(id, status);
+            Assert.AreEqual(estatus.Id, id);
+            Assert.AreEqual(estatus.Status, status);
+        }
+
+        public static object[] ChangeStatusCase =
+        {
+            new object[] { 1, EStatus.New }
+        };
+
+        [TestCase(1, 232)]
+
+        public void ChangePrice(int id, decimal price)
+        {
+            ProductService productService = new ProductService();
+            var product = productService.ChangePrice(id, price);
+            Assert.AreEqual(product.Id, id);
+            Assert.AreEqual(product.Price, price);
+        }
+
+        public static object[] ChangePriceCase =
+        {
+            new object[] { 1, 232.0M }
+        };
     }
 }

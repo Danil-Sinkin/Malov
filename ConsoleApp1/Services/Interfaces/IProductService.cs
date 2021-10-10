@@ -6,6 +6,6 @@ namespace ConsoleApp1.Services.Interfaces
     {
         public ProductModel CreateProduct(string name, decimal price);
         public ProductModel[] GetProducts();
-        public void ChangePrice(int id, decimal price);
+        public ProductModel ChangePrice(int id, decimal price);
     }
 }

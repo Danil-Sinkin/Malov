@@ -8,6 +8,6 @@ namespace ConsoleApp1.Services.Interfaces
         public OrderModel GetOrder(int id);
         public OrderModel[] GetOrders();
         public OrderModel AddOrder(string description, string address, ProductModel[] products);
-        public void ChangeStatus(int id, EStatus status);
+        public OrderModel ChangeStatus(int id, EStatus status);
     }
 }

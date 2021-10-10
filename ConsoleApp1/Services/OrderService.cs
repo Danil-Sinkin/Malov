@@ -10,10 +10,16 @@ namespace ConsoleApp1
     public class OrderService :IOrderService
     {
         public static List<OrderModel> Orders = new List<OrderModel>();
-        public void ChangeStatus(int id, EStatus status)
+        public OrderModel ChangeStatus(int id, EStatus status)
         {
             var order = Orders.FirstOrDefault(q => q.Id == id);
+            //if ((status == EStatus.Accept) ||
+            //    (status == EStatus.Finished) ||
+            //    (status == EStatus.New))
+            //    throw new Exception("Передано пустое значение");
             order.Status = status;
+            Orders.Add(order);
+            return order;
         }
 
         public OrderModel AddOrder(string description, string address, ProductModel[] products)

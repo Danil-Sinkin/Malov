@@ -2,6 +2,7 @@
 using ConsoleApp1.Models;
 using ConsoleApp1.Services.Interfaces;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -13,16 +14,26 @@ namespace ConsoleApp1
         public OrderModel ChangeStatus(int id, EStatus status)
         {
             var order = Orders.FirstOrDefault(q => q.Id == id);
-            //if ((status == EStatus.Accept) ||
-            //    (status == EStatus.Finished) ||
-            //    (status == EStatus.New))
-            //    throw new Exception("Передано пустое значение");
-            order.Status = status;
+            if (status is EStatus.New||
+                status is EStatus.New ||
+                status is EStatus.Finished||
+                status is EStatus.Accept )
+            {
+                order = new OrderModel
+                {
+                    Id = id,
+                    Status = status
+                };
+            }
+            else
+            {
+                throw new Exception("Передано пустое значение");
+            }
             Orders.Add(order);
             return order;
         }
 
-        public OrderModel AddOrder(string description, string address, ProductModel[] products)
+        public OrderModel AddOrder(ProductModel[] products,string description, string address)
         {
             if ((products is null) ||
                 string.IsNullOrEmpty(description) ||

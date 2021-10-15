@@ -4,19 +4,20 @@ using ConsoleApp1.Models;
 using ConsoleApp1.Services;
 using NUnit.Framework;
 using System;
+using System.Collections.Generic;
 
 namespace testt
 {
-    public class Tests
+    public class Tests 
     {
         [SetUp]
         public void Setup()
         {
         }
 
-        [TestCase("ћолоко", 150)]
-        [TestCase("’леб", 333)]
-        [TestCase("яблоко", 444)]
+        [TestCase("ћолоко", 150.0)]
+        [TestCase("’леб", 333.0)]
+        [TestCase("яблоко", 444.0)]
 
         [Test]
         public void CreateProduct(string name, decimal price)
@@ -27,16 +28,15 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        [TestCase("", 444)]
-        [TestCase("яблоко", -444)]
+        [TestCase("", 444.0)]
+        [TestCase("яблоко", -444.0)]
         public void CreateProductWithThrow(string name, decimal price)
         {
             var productService = new ProductService();
             Assert.Throws<Exception>(() => productService.CreateProduct(name, price));
         }
 
-        [TestCase("’леб свежий", "јдрес", "ProductsCase")]
-
+        [TestCaseSource(nameof(ProductsCase))]
         public void ProductsTest(int id, string name, decimal price)
         {
             ProductService productService = new ProductService();
@@ -45,30 +45,33 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        public static object[] ProductsCase =
+        static object[] ProductsCase =
         {
-            new object[] { 12, "’леб", 6.0m }
+            new object[] { 4,"’леб",333.0M}
         };
 
-        public void AddOrder(string description, string address, ProductModel[] products)
+        [TestCase(nameof(ProductsCase), "’леб", "’леб’леб’леб")]
+
+        public void AddOrder(ProductModel[] products,string description, string address)
         {
             OrderService orderService = new OrderService();
 
-            var order = orderService.AddOrder(description, address, products);
+            var order = orderService.AddOrder(products,description, address);
+
             Assert.AreEqual(order.Products, products);
             Assert.AreEqual(order.Description, description);
             Assert.AreEqual(order.Address, address);
         }
 
+        
 
-
-        public void AddOrderWithThrow(string description, string address, ProductModel[] products)
+        public void AddOrderWithThrow(ProductModel[] products,string description, string address)
         {
             var orderService = new OrderService();
-            Assert.Throws<Exception>(() => orderService.AddOrder(description, address, products));
+            Assert.Throws<Exception>(() => orderService.AddOrder(products,description, address));
         }
 
-        [TestCaseSource("ChangeStatusCase")]
+        [TestCase(4, EStatus.New)]
 
         public void ChangeStatus(int id, EStatus status)
         {
@@ -78,12 +81,16 @@ namespace testt
             Assert.AreEqual(estatus.Status, status);
         }
 
-        public static object[] ChangeStatusCase =
-        {
-            new object[] { 1, EStatus.New }
-        };
+        [TestCase(4, 11)]
 
-        [TestCase(1, 232)]
+        public void ChangeStatusWithThrow(int id, EStatus status)
+        {
+            OrderService orderService = new OrderService();
+            Assert.Throws<Exception>(() => orderService.ChangeStatus(id, status));
+        }
+
+        [TestCase(12, 233.0)]
+        [Test]
 
         public void ChangePrice(int id, decimal price)
         {
@@ -93,9 +100,13 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        public static object[] ChangePriceCase =
-        {
-            new object[] { 1, 232.0M }
-        };
+        [TestCase(12, -233.0)]
+        [Test]
+
+        public void ChangePriceWithThrow(int id, decimal price)
+        { 
+            var productService = new ProductService();
+            Assert.Throws<Exception>(() => productService.ChangePrice(id, price));
+        }
     }
 }

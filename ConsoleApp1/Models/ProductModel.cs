@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-
+﻿
 namespace ConsoleApp1.Models
 {
     public class ProductModel

@@ -1,7 +1,6 @@
 ﻿using ConsoleApp1.Models;
 using ConsoleApp1.Services.Interfaces;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 

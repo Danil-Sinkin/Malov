@@ -15,9 +15,7 @@ namespace testt
         {
         }
 
-        [TestCase("Молоко", 150.0)]
         [TestCase("Хлеб", 333.0)]
-        [TestCase("Яблоко", 444.0)]
 
         [Test]
         public void CreateProduct(string name, decimal price)
@@ -63,12 +61,12 @@ namespace testt
                 {new ProductOrderModel{
                     productModels  =new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
                 } },
-                null, "asd" },
+                null, "Екатеринбург" },
             new object[] { new List<ProductOrderModel>() 
             { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
 
             } },
-            "asd",null}
+            "Хлеб свежий",null}
         };
         [TestCaseSource("_sourceLists")]
 

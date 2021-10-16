@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace ConsoleApp1.Services
 {
-    public class ProductService :IEnumerable, IProductService
+    public class ProductService : IProductService
     {
         public static List<ProductModel> Products = new List<ProductModel>();
         
@@ -41,15 +41,11 @@ namespace ConsoleApp1.Services
             return product;
         }
 
-        public IEnumerator GetEnumerator()
-        {
-            return ((IEnumerable)Products).GetEnumerator();
-        }
 
         public ProductModel[] GetProducts()
         {
-            ProductModel[] products = Products.ToArray();
-            return products;
+            ProductModel[] productModels = Products.ToArray();
+            return productModels;
         }
     }
 }

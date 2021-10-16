@@ -14,8 +14,7 @@ namespace ConsoleApp1
         public OrderModel ChangeStatus(int id, EStatus status)
         {
             var order = Orders.FirstOrDefault(q => q.Id == id);
-            if (status is EStatus.New||
-                status is EStatus.New ||
+            if (status is EStatus.New ||
                 status is EStatus.Finished||
                 status is EStatus.Accept )
             {
@@ -33,16 +32,17 @@ namespace ConsoleApp1
             return order;
         }
 
-        public OrderModel AddOrder(ProductModel[] products,string description, string address)
+        public OrderModel AddOrder(ProductOrderModel[] products,string description, string address)
         {
             if ((products is null) ||
                 string.IsNullOrEmpty(description) ||
                 string.IsNullOrEmpty(address))
                 throw new Exception("Передано пустое значение");
+
             var order = new OrderModel
             {
                 Id = Orders.Count + 1,
-                Products = products,
+                Products = products.ToArray(),
                 Description = description,
                 Address = address
             };

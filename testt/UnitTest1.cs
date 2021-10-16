@@ -36,39 +36,46 @@ namespace testt
             Assert.Throws<Exception>(() => productService.CreateProduct(name, price));
         }
 
-        [TestCaseSource(nameof(ProductsCase))]
-        public void ProductsTest(int id, string name, decimal price)
+        private static object[] _ProductList =
         {
-            ProductService productService = new ProductService();
-            var product = productService.CreateProduct(name, price);
-            Assert.AreEqual(product.Name, name);
-            Assert.AreEqual(product.Price, price);
-        }
-
-        static object[] ProductsCase =
-        {
-            new object[] { 4,"Õëåá",333.0M}
+            new object[] {
+                 new List<ProductOrderModel>()
+                {new ProductOrderModel{
+                    productModels  =new ProductModel{Id = 1, Name = "Õëåá", Price = 12}
+                } },
+                "Õëåá ñâåæèé", "Åêàòåðèíáóðã" }
         };
-
-        [TestCase(nameof(ProductsCase), "Õëåá", "ÕëåáÕëåáÕëåá")]
-
-        public void AddOrder(ProductModel[] products,string description, string address)
+        [TestCaseSource("_ProductList")]
+        public void AddOrder(List<ProductOrderModel> products,string description, string address)
         {
             OrderService orderService = new OrderService();
-
-            var order = orderService.AddOrder(products,description, address);
-
-            Assert.AreEqual(order.Products, products);
-            Assert.AreEqual(order.Description, description);
-            Assert.AreEqual(order.Address, address);
+            orderService.AddOrder(products.ToArray(),description, address);
+            var order = orderService.GetOrder(1);
+            Assert.AreEqual(description,order.Description );
+            Assert.AreEqual(address,order.Address );
+            Assert.Pass();
         }
 
-        
+        private static object[] _sourceLists =
+        {
+            new object[] {
+                new List<ProductOrderModel>()
+                {new ProductOrderModel{
+                    productModels  =new ProductModel{Id = 1, Name = "Õëåá", Price = 12}
+                } },
+                null, "asd" },
+            new object[] { new List<ProductOrderModel>() 
+            { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Õëåá", Price = 12}
 
-        public void AddOrderWithThrow(ProductModel[] products,string description, string address)
+            } },
+            "asd",null}
+        };
+        [TestCaseSource("_sourceLists")]
+
+        public void AddOrderWithThrow(List<ProductOrderModel> products,string description, string address)
         {
             var orderService = new OrderService();
-            Assert.Throws<Exception>(() => orderService.AddOrder(products,description, address));
+            Assert.Throws<Exception>(() => orderService.AddOrder(products.ToArray(),description, address));
         }
 
         [TestCase(4, EStatus.New)]
@@ -76,9 +83,10 @@ namespace testt
         public void ChangeStatus(int id, EStatus status)
         {
             OrderService orderService = new OrderService();
-            var estatus = orderService.ChangeStatus(id, status);
-            Assert.AreEqual(estatus.Id, id);
-            Assert.AreEqual(estatus.Status, status);
+            var products = new List<ProductOrderModel>()
+            {new ProductOrderModel{
+                productModels  =new ProductModel{Id = 1, Name = "Õëåá", Price = 12}
+            } };
         }
 
         [TestCase(4, 11)]
@@ -95,9 +103,10 @@ namespace testt
         public void ChangePrice(int id, decimal price)
         {
             ProductService productService = new ProductService();
-            var product = productService.ChangePrice(id, price);
-            Assert.AreEqual(product.Id, id);
-            Assert.AreEqual(product.Price, price);
+            var products = new List<ProductOrderModel>()
+            {new ProductOrderModel{
+                productModels  =new ProductModel{Id = 1, Name = "Õëåá", Price = 12}
+            } };
         }
 
         [TestCase(12, -233.0)]

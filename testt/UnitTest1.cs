@@ -28,6 +28,7 @@ namespace testt
 
         [TestCase("", 444.0)]
         [TestCase("яблоко", -444.0)]
+
         public void CreateProductWithThrow(string name, decimal price)
         {
             var productService = new ProductService();
@@ -43,7 +44,9 @@ namespace testt
                 } },
                 "’леб свежий", "≈катеринбург" }
         };
+
         [TestCaseSource("_ProductList")]
+
         public void AddOrder(List<ProductOrderModel> products,string description, string address)
         {
             OrderService orderService = new OrderService();
@@ -68,6 +71,7 @@ namespace testt
             } },
             "’леб свежий",null}
         };
+
         [TestCaseSource("_sourceLists")]
 
         public void AddOrderWithThrow(List<ProductOrderModel> products,string description, string address)

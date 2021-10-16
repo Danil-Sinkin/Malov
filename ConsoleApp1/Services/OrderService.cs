@@ -11,6 +11,7 @@ namespace ConsoleApp1
     public class OrderService :IOrderService
     {
         public static List<OrderModel> Orders = new List<OrderModel>();
+
         public OrderModel ChangeStatus(int id, EStatus status)
         {
             var order = Orders.FirstOrDefault(q => q.Id == id);

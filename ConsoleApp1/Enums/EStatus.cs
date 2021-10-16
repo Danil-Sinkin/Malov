@@ -2,8 +2,8 @@
 {
     public enum EStatus
     {
-        New=1,
-        Accept=2, 
-        Finished=3
+        New,
+        Accept, 
+        Finished
     }
 }

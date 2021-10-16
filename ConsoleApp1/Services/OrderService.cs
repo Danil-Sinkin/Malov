@@ -15,9 +15,7 @@ namespace ConsoleApp1
         public OrderModel ChangeStatus(int id, EStatus status)
         {
             var order = Orders.FirstOrDefault(q => q.Id == id);
-            if (status is EStatus.New ||
-                status is EStatus.Finished||
-                status is EStatus.Accept )
+            if (status ==0 )
             {
                 order = new OrderModel
                 {

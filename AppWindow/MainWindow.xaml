@@ -5,26 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="605" Width="508">
-    <Grid Margin="0,0,0,41">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="382*"/>
-            <RowDefinition Height="125*"/>
-        </Grid.RowDefinitions>
-        <Label x:Name="NameProduct" Content="" HorizontalAlignment="Left" Height="33" Margin="36,37,0,0" VerticalAlignment="Top" Width="142"/>
-        <Label x:Name="NameProduct1" Content="" HorizontalAlignment="Left" Height="33" Margin="36,37,0,0" VerticalAlignment="Top" Width="195" FontFamily="Arial Black" FontSize="20"/>
-        <Label x:Name="NameProduct2" Content="" HorizontalAlignment="Left" Height="33" Margin="273,37,0,0" VerticalAlignment="Top" Width="202" FontSize="20" FontFamily="Arial Black"/>
-        <Image HorizontalAlignment="Left"  Height="105" Margin="36,70,0,0" VerticalAlignment="Top" Width="198" OpacityMask="Black" Visibility="Visible"/>
-        <Image HorizontalAlignment="Left" Height="105" Margin="268,70,0,0" VerticalAlignment="Top" Width="205"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="98,177,0,0" VerticalAlignment="Top" Width="70" BorderThickness="0,0,0,0" FontSize="16" FontFamily="Arial Black"/>
-        <Label Content="Count" HorizontalAlignment="Left" Height="29" Margin="334,177,0,0" VerticalAlignment="Top" Width="67" FontSize="16" FontFamily="Arial Black"/>
-        <Image HorizontalAlignment="Left" Height="105" Margin="268,70,0,0" VerticalAlignment="Top" Width="205"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="50,176,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" BorderThickness="2,2,2,2" ClipToBounds="True" FontSize="20" FontFamily="Arial Black" Click="minus"/>
-        <Button Content="+" HorizontalAlignment="Left" Height="28" Margin="418,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click_1"/>
-        <Button Content="-" HorizontalAlignment="Left" Height="28" Margin="286,178,0,0" VerticalAlignment="Top" Width="30" Background="{x:Null}" RenderTransformOrigin="0.567,0.823" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="Button_Click"/>
-        <Button x:Name="plus1" Content="+" HorizontalAlignment="Left" Height="28" Margin="180,177,0,0" VerticalAlignment="Top" Width="31" Background="{x:Null}" FontSize="20" BorderThickness="2,2,2,2" FontFamily="Arial Black" Click="plus"/>
-        <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" Height="29" Margin="36,80,0,0" VerticalAlignment="Top" Width="194" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Orders" FontSize="20" Grid.Row="1" BorderBrush="Black" BorderThickness="2,2,2,2" FontFamily="Arial Black"/>
-        <Button x:Name="order" Content="Заказать" HorizontalAlignment="Left" Height="29" Margin="273,80,0,0" VerticalAlignment="Top" Width="202" Background="{x:Null}" RenderTransformOrigin="0.468,0.484" Click="Order" FontSize="20" Grid.Row="1" BorderThickness="2,2,2,2" FontFamily="Arial Black" BorderBrush="Black"/>
+        Title="MainWindow" Height="524" Width="446">
 
+    <Grid>
+        <ListBox x:Name="listProduct" ItemsSource="{Binding ProductList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
+                        <Border BorderBrush="#FF0F0404" OpacityMask="Black" Background="#FFA8A8A8">
+                            <Image Width="170" Height="110" Source="{Binding Path=ImagePath}" Margin="1,1,1,1"/>
+                        </Border>
+                        <StackPanel Margin="5" Orientation="Horizontal" Width="150">
+                            <Button Content="-" Click="minus" Width="30" Height="30" Background="White"></Button>
+                            <TextBlock x:Name="CountProduct" FontSize="16" Text="{Binding Path=Count}" HorizontalAlignment="Center" Margin="35,1,35,1"/>
+                            <Button Content="+" Name="plus" Click="plus" Width="30" Height="30" Background="White"></Button>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" 
+                    Height="29" Margin="36,447,0,0" VerticalAlignment="Top" Width="160" 
+                    Background="{x:Null}" RenderTransformOrigin="0.468,0.484" 
+                    Click="Orders" FontSize="20" BorderBrush="Black" 
+                    BorderThickness="2,2,2,2" FontFamily="Arial Black"/>
+        <Button x:Name="order" Content="Заказать" HorizontalAlignment="Left" 
+                    Height="28" Margin="223,448,0,0" VerticalAlignment="Top" Width="174" 
+                    Background="{x:Null}" RenderTransformOrigin="0.468,0.484" 
+                    Click="Order" FontSize="20" BorderThickness="2,2,2,2" 
+                    FontFamily="Arial Black" BorderBrush="Black"/>
     </Grid>
 </Window>

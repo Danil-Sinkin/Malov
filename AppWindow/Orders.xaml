@@ -5,9 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppWindow"
         mc:Ignorable="d"
-        Title="Orders" Height="450" Width="800">
+        Title="Orders" Height="550" Width="400">
     <Grid>
-        <ListBox HorizontalAlignment="Center" Height="335" Margin="0,23,0,0" VerticalAlignment="Top" Width="730" Background="{x:Null}" BorderBrush="{x:Null}" FontFamily="Arial Black" FontSize="20" SelectionChanged="listOrders"/>
-        <Button Content="Вернуться" HorizontalAlignment="Left" Height="46" Margin="35,363,0,0" VerticalAlignment="Top" Width="711" Background="{x:Null}" BorderBrush="Black" OpacityMask="Black" FontSize="20" FontFamily="Arial Black" Click="backOrders"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="245*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical" Grid.RowSpan="2">
+            <ListBox x:Name="listOrders" ItemsSource="{Binding OrdersList}" BorderBrush="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#FF0F0404" OpacityMask="Black" BorderThickness="1" Width="300">
+                            <TextBlock Text="{Binding Path=Name}" FontSize="20" FontWeight="Bold" Margin="3"></TextBlock>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                
+            </ListBox>
+        </StackPanel>
+        <Button Content="Вернуться" HorizontalAlignment="Center" VerticalAlignment="Center"  
+                Background="{x:Null}" BorderBrush="Black" OpacityMask="Black" 
+                FontSize="20" FontFamily="Arial Black" Click="backOrders" Grid.Row="1" Width="298"/>
     </Grid>
 </Window>

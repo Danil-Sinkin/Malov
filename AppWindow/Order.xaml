@@ -5,12 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppWindow"
         mc:Ignorable="d"
-        Title="Order" Height="450" Width="800">
+        Title="Order" Height="550" Width="400">
     <Grid>
-        <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" Height="50" Margin="77,340,0,0" VerticalAlignment="Top" Width="225" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" BorderThickness="2,2,2,2" Grid.Column="0" Panel.ZIndex="-3" BorderBrush="Black" Click="orders_Click"/>
-        <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left" Height="51" Margin="456,340,0,0" VerticalAlignment="Top" Width="242" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="Black" BorderThickness="2,2,2,2" Click="back_Click"/>
-        <Label Content="Итоговая цена:" HorizontalAlignment="Left" Height="38" Margin="486,287,0,0" VerticalAlignment="Top" Width="182" FontFamily="Arial Black" FontSize="20"/>
-        <Menu HorizontalAlignment="Center" Height="291" Margin="0,10,0,0" VerticalAlignment="Top" Width="752" FontSize="20" FontFamily="Arial Black" Background="{x:Null}"/>
-        <Label Content="" HorizontalAlignment="Left" Height="38" Margin="673,306,0,0" VerticalAlignment="Top" Width="103"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <ListBox x:Name="listOrder" ItemsSource="{Binding OrderList}" BorderBrush="{x:Null}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <StackPanel Orientation="Horizontal" >
+                                <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                                <Label Content="-" FontSize="16" FontWeight="Bold" Margin="5,0,5,0" VerticalAlignment="Stretch" HorizontalAlignment="Center"></Label>
+                                <TextBlock x:Name="CountProduct" FontSize="16" Text="{Binding Path=CountProduct}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                <Label Content="-" FontSize="16" FontWeight="Bold" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Stretch"></Label>
+                                <TextBlock x:Name="Price" Text="{Binding Path=Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
+                            </StackPanel>
+                            
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <TextBlock Text="Итоговая цена:" FontFamily="Arial Black" FontSize="20" Margin="2"/>
+            <TextBlock Text="{Binding Path=FinalPrice}" FontFamily="Arial Black" FontSize="20" Margin="2"></TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="orders" Content="Заказы" HorizontalAlignment="Left" Margin="5" VerticalAlignment="Top" Padding="5" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" Panel.ZIndex="-3" BorderBrush="Black" Click="orders_Click"/>
+            <Button x:Name="back" Content="Вернуться" HorizontalAlignment="Left"  Margin="5" VerticalAlignment="Top" Padding="5" FontSize="20" Background="{x:Null}" FontFamily="Arial Black" BorderBrush="Black"  Click="back_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

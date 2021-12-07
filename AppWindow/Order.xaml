@@ -18,17 +18,17 @@
                     <DataTemplate>
                         <Grid>
                             <StackPanel Orientation="Horizontal" >
-                                <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
+                                <TextBlock FontSize="16" Text="{Binding Path=NameProduct}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold"/>
                                 <Label Content="-" FontSize="16" FontWeight="Bold" Margin="5,0,5,0" VerticalAlignment="Stretch" HorizontalAlignment="Center"></Label>
                                 <TextBlock x:Name="CountProduct" FontSize="16" Text="{Binding Path=CountProduct}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
                                 <Label Content="-" FontSize="16" FontWeight="Bold" Margin="5,0,5,0" HorizontalAlignment="Center" VerticalAlignment="Stretch"></Label>
                                 <TextBlock x:Name="Price" Text="{Binding Path=Price}" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"></TextBlock>
                             </StackPanel>
-                            
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+            
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Text="Итоговая цена:" FontFamily="Arial Black" FontSize="20" Margin="2"/>

@@ -40,7 +40,6 @@ namespace ConsoleApp1.Services
             return product;
         }
 
-
         public ProductModel[] GetProducts()
         {
             ProductModel[] productModels = Products.ToArray();

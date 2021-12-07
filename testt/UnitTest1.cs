@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace testt
 {
-    public class Tests 
+    public class Tests
     {
         [SetUp]
         public void Setup()
@@ -57,7 +57,7 @@ namespace testt
             Assert.Pass();
         }
 
-        private static object[] _sourceLists =
+        private static object[] _SourceLists =
         {
             new object[] {
                 new List<ProductOrderModel>()
@@ -72,7 +72,7 @@ namespace testt
             "Хлеб свежий",null}
         };
 
-        [TestCaseSource("_sourceLists")]
+        [TestCaseSource("_SourceLists")]
 
         public void AddOrderWithThrow(List<ProductOrderModel> products,string description, string address)
         {
@@ -85,10 +85,10 @@ namespace testt
         public void ChangeStatus(int id, EStatus status)
         {
             OrderService orderService = new OrderService();
-            var products = new List<ProductOrderModel>()
-            {new ProductOrderModel{
-                productModels  =new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
-            } };
+            
+            var Ostatus = orderService.ChangeStatus(id, status);
+            Assert.AreEqual(Ostatus.Id, id);
+            Assert.AreEqual(Ostatus.Status, status);
         }
 
         [TestCase(4, 11)]
@@ -105,10 +105,9 @@ namespace testt
         public void ChangePrice(int id, decimal price)
         {
             ProductService productService = new ProductService();
-            var products = new List<ProductOrderModel>()
-            {new ProductOrderModel{
-                productModels  =new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
-            } };
+            var product = productService.ChangePrice(id, price);
+            Assert.AreEqual(product.Id, id);
+            Assert.AreEqual(product.Price, price);
         }
 
         [TestCase(12, -233.0)]

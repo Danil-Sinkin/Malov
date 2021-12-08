@@ -1,18 +1,18 @@
-﻿<Window x:Class="AppWindow.Order"
+﻿<Window x:Class="AppWindow.Zakazat"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AppWindow"
         mc:Ignorable="d"
-        Title="Order" Height="550" Width="400">
-    <Grid>
+        Title="Zakaz" Height="550" Width="400">
+<Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Vertical">
+        <StackPanel Orientation="Vertical" Background="White">
             <ListBox x:Name="listOrder" ItemsSource="{Binding OrderList}" BorderBrush="{x:Null}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -28,7 +28,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            
+
         </StackPanel>
         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
             <TextBlock Text="Итоговая цена:" FontFamily="Arial Black" FontSize="20" Margin="2"/>

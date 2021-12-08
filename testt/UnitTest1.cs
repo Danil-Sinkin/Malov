@@ -26,8 +26,8 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        [TestCase("", 444.0)]
-        [TestCase("Яблоко", -444.0)]
+        [TestCase("", 222.0)]
+        [TestCase("Мандарин", -222.0)]
 
         public void CreateProductWithThrow(string name, decimal price)
         {
@@ -62,14 +62,11 @@ namespace testt
             new object[] {
                 new List<ProductOrderModel>()
                 {new ProductOrderModel{
-                    productModels  =new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
-                } },
-                null, "Екатеринбург" },
+                    productModels  =new ProductModel{Id = 1, Name = "Плов", Price = 80} } }, null, "Екатеринбург" },
+                
             new object[] { new List<ProductOrderModel>() 
-            { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Хлеб", Price = 12}
+            { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Плов", Price = 80} } }, "Плов свежий",null}
 
-            } },
-            "Хлеб свежий",null}
         };
 
         [TestCaseSource("_SourceLists")]
@@ -99,7 +96,7 @@ namespace testt
             Assert.Throws<Exception>(() => orderService.ChangeStatus(id, status));
         }
 
-        [TestCase(12, 233.0)]
+        [TestCase(10, 111.0)]
         [Test]
 
         public void ChangePrice(int id, decimal price)
@@ -110,7 +107,7 @@ namespace testt
             Assert.AreEqual(product.Price, price);
         }
 
-        [TestCase(12, -233.0)]
+        [TestCase(10, -111.0)]
         [Test]
 
         public void ChangePriceWithThrow(int id, decimal price)

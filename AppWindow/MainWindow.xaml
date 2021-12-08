@@ -14,23 +14,41 @@
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <ListView Grid.Row="1" x:Name="listProduct" HorizontalAlignment="Center"
-                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding ProductList}" BorderBrush="{x:Null}">
+                       ScrollViewer.HorizontalScrollBarVisibility="Disabled"  ItemsSource="{Binding ProductOrderModel}" BorderBrush="{x:Null}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
                         <StackPanel>
-                            <TextBlock FontSize="16" Text="{Binding Path=Name}" HorizontalAlignment="Center" />
-                            <Border BorderBrush="#FF0F0404" OpacityMask="Black" BorderThickness="1">
-                                <Image Width="170" Height="110" Source="{Binding Path=ImagePath}"/>
-                            </Border>
+                        <ListView ItemsSource="{Binding ProductModels}" BorderBrush="{x:Null}">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                        <StackPanel>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                <TextBlock FontSize="16" Text="{Binding Name}" HorizontalAlignment="Center" />
+                                                <TextBlock  Text="  " HorizontalAlignment="Center" />
+                                                <TextBlock FontSize="16" Text="{Binding Price}" HorizontalAlignment="Center" />
+                                            </StackPanel>
+                                                <Border BorderBrush="#FF0F0404" OpacityMask="Black" BorderThickness="1">
+                                                    <Image Width="200" Height="110" Source="{Binding ImagePath}"/>
+                                                </Border>
+                                            </StackPanel>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                    
+                                </ListView.ItemTemplate>
+
+                            </ListView>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Button Content="-" Click="minus" Width="30" Height="30" Background="White" Margin="0,0,50,0"></Button>
-                                <TextBlock Name="CountProduct" FontSize="16" Text="{Binding Path=CountProduct}"/>
-                                <Button Content="+" Name="plus" Click="plus" Width="30" Height="30" Background="White" Margin="50,0,0,0"></Button>
+                                <Button Content="-" Click="minus" Width="30" Height="30" Background="White" Margin="0,0,5,0"></Button>
+                                <TextBlock Name="CountProduct" FontSize="16" Text="{Binding Count }"/>
+                                <Button Content="+" Name="plus" Click="plus" Width="30" Height="30" Background="White" Margin="5,0,0,0"></Button>
                             </StackPanel>
                         </StackPanel>
-                    </Grid>
+                    </Grid>   
                 </DataTemplate>
+
             </ListView.ItemTemplate>
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

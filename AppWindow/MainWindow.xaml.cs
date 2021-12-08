@@ -11,50 +11,55 @@ namespace AppWindow
 {
     public partial class MainWindow : Window
     {
-        public ObservableCollection<ProductList> Products { get; set; }
+        public ObservableCollection<ProductModel> Products { get; set; }
+
+  
         public MainWindow()
         {
             InitializeComponent();
-            Products = new ObservableCollection<ProductList>
-            {
-                new ProductList{Id = 1, ImagePath = "/Images/product1.jpg", Name = "Хлеб", Price= 34, CountProduct = 0},
-                new ProductList{Id = 2, ImagePath = "/Images/product2.jpg", Name = "Батон", Price= 29, CountProduct = 0},
-                new ProductList{Id = 3, ImagePath = "/Images/product3.jpg", Name = "Мука", Price= 56, CountProduct = 0},
-                new ProductList{Id = 4, ImagePath = "/Images/product4.jpg", Name = "Масло", Price= 121, CountProduct = 0}
-            };
-            listProduct.ItemsSource = Products;
+            Loaded += MainWindow_Loaded;
         }
-        public class ProductList
-        {
-            public int Id { get; set; }
-            public string Name { get; set; }
-            public string ImagePath { get; set; }
-            public decimal Price { get; set; }
-            public int CountProduct { get; set; }
 
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            listProduct.ItemsSource = new ProductOrderModel[] { 
+             new ProductOrderModel()
+            { ProductModels = new[] {
+             new ProductModel() { ImagePath = "/Images/product1.jpg", Name = "Манник", Price = 25 } } },
+             new ProductOrderModel()
+            { ProductModels = new[] {
+             new ProductModel() { ImagePath = "/Images/product2.jpg", Name = "Курник", Price =  37} } },
+             new ProductOrderModel()
+            { ProductModels = new[] {
+             new ProductModel() { ImagePath = "/Images/product3.jpg", Name = "Шарлотка", Price = 40 } } },
+             new ProductOrderModel()
+            { ProductModels = new[] {
+             new ProductModel() { ImagePath = "/Images/product4.jpg", Name = "Сочник с творогом", Price = 40 } } },
+             new ProductOrderModel()
+            { ProductModels = new[] {
+             new ProductModel() { ImagePath = "/Images/product5.jpg", Name = "Пирожок с капустой", Price = 30 } } } };
         }
-        
+
         private void plus(object sender, RoutedEventArgs e)
         {
-            ProductList product = (ProductList)listProduct.ItemsSource;
-            product.CountProduct += 1;
-            //a++;
-            //CountProduct.Text = a.ToString();
-            MessageBox.Show(product.CountProduct.ToString());
+            Button button = sender as Button;
+            ProductOrderModel product = button.DataContext as ProductOrderModel;
+            product.Count += 1;
+            listProduct.Items.Refresh();
         }
         
         private void minus(object sender, RoutedEventArgs e)
         {
-
-            //int a = Convert.ToInt32(CountProduct.Text);
-            //CountProduct.Text = Convert.ToString(a--);
-            //MessageBox.Show(CountProduct.Text);
+            Button button = sender as Button;
+            ProductOrderModel product = button.DataContext as ProductOrderModel;
+            if (product.Count > 0) { product.Count -= 1;}
+            listProduct.Items.Refresh();
         }
 
         private void Order(object sender, RoutedEventArgs e)
         {
-            Order order = new Order();
-            order.Show();
+            Zakazat zakaz = new Zakazat();
+            zakaz.Show();
             this.Close();
         }
 

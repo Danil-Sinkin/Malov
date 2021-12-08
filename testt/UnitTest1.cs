@@ -65,7 +65,7 @@ namespace testt
                     productModels  =new ProductModel{Id = 1, Name = "Плов", Price = 80} } }, null, "Екатеринбург" },
                 
             new object[] { new List<ProductOrderModel>() 
-            { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Плов", Price = 80} } }, "Плов свежий",null}
+            { new ProductOrderModel { productModels = new ProductModel{Id = 1, Name = "Плов", Price = 81} } }, "Плов свежий",null}
 
         };
 
